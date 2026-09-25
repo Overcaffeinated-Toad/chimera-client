@@ -11,14 +11,14 @@ Features are deliberately built as render-layer changes for that reason.
 
 ## Screenshots
 
+The main menu.
+
+![Main menu](screenshots/1-main-menu.webp)
+
 Dragging HUD elements around the screen. Every element can be moved, resized and configured from
 here, and each has its own settings shortcut.
 
-![Arranging the HUD](screenshots/1-rearrange-hud.webp)
-
-The main menu.
-
-![Main menu](screenshots/2-main-menu.webp)
+![Arranging the HUD](screenshots/2-rearrange-hud.webp)
 
 The mod list, with every mod toggleable in place and favourites pinned to the top.
 
