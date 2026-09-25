@@ -1,8 +1,8 @@
 # Chimera Client
 
-A Minecraft 1.8.9 client built on Minecraft Forge, made mainly for Bedwars and other
-minigames. It adds a set of configurable HUD elements and quality of life mods, an in-game menu for setting all of them
-up, and a desktop launcher.
+A Minecraft 1.8.9 client built on Minecraft Forge, made mainly for Bedwars and other minigames. It
+adds a set of configurable HUD elements and quality of life mods, an in-game menu for setting all
+of them up, and a desktop launcher.
 
 **This is not a hack client.** Everything in it changes what you see, not what the game does.
 There's no reach extension, no aim assist, no auto clicking, no movement modification and no X-ray.
