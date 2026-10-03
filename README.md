@@ -1,8 +1,8 @@
 # Chimera Client
 
-A Minecraft 1.8.9 client built on Minecraft Forge, made mainly for Bedwars and other minigames. It
-adds a set of configurable HUD elements and quality of life mods, an in-game menu for setting all
-of them up, and a desktop launcher.
+A Minecraft 1.8.9 client built on Minecraft Forge, made mainly for Hypixel Bed Wars and other
+minigames. It adds a set of configurable HUD elements and quality of life mods, an in-game menu for
+setting all of them up, and a desktop launcher.
 
 **This is not a hack client.** Everything in it changes what you see, not what the game does.
 There's no reach extension, no aim assist, no auto clicking, no movement modification and no X-ray.
@@ -20,7 +20,7 @@ here, and each one has its own settings shortcut.
 
 ![Arranging the HUD](screenshots/2-rearrange-hud.webp)
 
-The mod list, with every mod toggleable in place and favourites pinned to the top.
+The mod list, with every mod toggleable in place and favorites pinned to the top.
 
 ![Mod list](screenshots/3-mod-list.webp)
 
@@ -34,11 +34,10 @@ In game, with hitboxes, a custom crosshair, hit damage numbers and the HUD eleme
 
 ## What's in it
 
-Currently at 38 mods, but still in development with over 50 more planned. Current mods include FPS
-display, ping display, coordinates, speedometer, reach display, CPS counter, combo counter,
-keystrokes, custom crosshair, block overlay, lighting, hitboxes, particles, view bobbing, damage
-tint, sneak animation, 3D skins, high resolution skins, time changer, zoom, toggle sprint, Bedwars
-shopkeeper improvements, and more.
+Over 50 mods so far, and still in development. Current mods include FPS display, ping display,
+coordinates, CPS counter, keystrokes, custom crosshair, block overlay, hitboxes, zoom, toggle
+sprint, chat improvements, nametags, enchantment glint, fog, motion blur, 3D skins, Level Head, a
+Bed Wars stats overlay, Bed Wars shopkeeper improvements, and more.
 
 Every mod has its own settings panel, and most come with a HUD element you can drag anywhere on
 screen.
@@ -53,12 +52,31 @@ A desktop launcher handles signing in and starting the game.
   in every time you open it
 - The refresh token is stored locally and encrypted through the operating system keystore. The
   Minecraft access token is only ever held in memory and never written to disk
-- No account data goes anywhere except Microsoft, Xbox and Minecraft's own endpoints
+- Sign in tokens never go anywhere except Microsoft, Xbox and Minecraft's own endpoints
+
+## Chimera's server
+
+Chimera runs a small server of its own (a Cloudflare Worker) for two things.
+
+**Showing who uses Chimera.** The client registers your Minecraft UUID, proven with Mojang's player
+certificate, so other Chimera players see a Chimera logo on your nametag. Your sign in tokens are
+never sent to it.
+
+**Hypixel stats.** Two mods use the Hypixel API:
+
+- Level Head shows a player's Bed Wars star, FKDR or network level above their nametag
+- The Stats Overlay shows Bed Wars or Duels stats for the players in your current game, in the tab
+  list or an on-screen panel
+
+The API key is stored as a secret on the server. It's never included in the client, and players
+never enter a key of their own. The server only calls `/v2/player` and `/v2/guild`, caches what it
+gets (player stats for 30 minutes, guilds for 24 hours), stops as soon as Hypixel's rate limit is
+reached, and sends the client a small summary instead of the raw response.
 
 ## Status
 
-Still in development. The client itself works and gets used daily. The launcher is partly built,
-with sign in working and game launching still to come.
+Still in development and not released yet. The client and launcher both work, and the client gets
+used daily through the launcher.
 
 ## Built with
 
